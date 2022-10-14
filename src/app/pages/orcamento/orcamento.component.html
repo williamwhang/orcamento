@@ -1,0 +1,21 @@
+<article class="align-center in-column">
+  <br />
+  <h2 class="h4">Orçamento</h2>
+
+  <form [formGroup]="formOrcamento" (ngSubmit)="gravarOrcamento(formOrcamento)">
+    <mat-form-field>
+      <mat-label>Digite o valor do seu orçamento...</mat-label>
+
+      <input matInput class="input" type="text" formControlName="orcamento" prefix="R$ " mask="separator.2" thousandSeparator="."/>
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!formOrcamento.valid"
+    >
+      Gravar
+    </button>
+  </form>
+</article>

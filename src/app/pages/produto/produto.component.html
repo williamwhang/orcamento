@@ -1,0 +1,78 @@
+<article class="align-center in-column">
+  <br />
+  <h2 class="h4">Cadastre o seus produtos</h2>
+
+  <form [formGroup]="formProduto" (ngSubmit)="gravarProduto(formProduto)">
+    <mat-form-field>
+      <mat-label>Descrição</mat-label>
+      <input
+        matInput
+        class="input"
+        type="text"
+        formControlName="description"
+        autocomplete="off"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label> Quantidade </mat-label>
+
+      <input matInput class="input" type="number" formControlName="quantity" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label> Preço </mat-label>
+
+      <input matInput class="input" type="text" formControlName="price" prefix="R$ " mask="separator.2" thousandSeparator="."/>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="!formProduto.valid">
+      Gravar
+    </button>
+  </form>
+
+  <br /><br />
+
+  <table mat-table [dataSource]="produtos$" class="mat-elevation-z8">
+    <ng-container matColumnDef="Produto">
+      <th mat-header-cell *matHeaderCellDef>Produto</th>
+      <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Quantidade">
+      <th mat-header-cell *matHeaderCellDef>Quantidade</th>
+      <td mat-cell *matCellDef="let element">{{ element.quantity }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Preço">
+      <th mat-header-cell *matHeaderCellDef>Preço</th>
+      <td mat-cell *matCellDef="let element">{{ element.price | currency }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Total">
+      <th mat-header-cell *matHeaderCellDef>Total</th>
+      <td mat-cell *matCellDef="let element">{{ element.total | currency }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Ações">
+      <th mat-header-cell *matHeaderCellDef>Ações</th>
+      <td mat-cell *matCellDef="let element">
+        <app-acoes
+          (delete)="excluirProduto(element.id, element.total)"
+          (alter)="alterarProduto(element)"
+        ></app-acoes>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-header-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</article>
+
+<section *ngIf="openOrCloseModal" class="modal">
+
+  <!-- <app-alterar-produto
+    (close)="abrirOuFecharModal()"
+  ></app-alterar-produto> -->
+
+</section>

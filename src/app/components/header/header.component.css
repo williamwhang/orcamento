@@ -1,0 +1,50 @@
+img {
+  width: 100px;
+}
+
+.ball {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background-color: #fff;
+}
+
+.toolbar {
+  max-width: 1280px;
+  justify-content: space-evenly;
+  margin: 0 auto;
+}
+
+.orcamentoIcon {
+  cursor: pointer;
+}
+
+nav {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+a {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+a:hover {
+  color: var(--primary);
+}
+
+.colorGreen {
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #fff;
+  color: var(--success);
+}
+
+.colorRed {
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #fff;
+  color: var(--warn);
+}
