@@ -1,10 +1,10 @@
 {
   "produtos": [
     {
-      "total": 88.5,
+      "total": 5.9,
       "description": "cha",
       "quantity": 1,
-      "price": 88.5,
+      "price": 5.9,
       "id": 1
     }
   ]

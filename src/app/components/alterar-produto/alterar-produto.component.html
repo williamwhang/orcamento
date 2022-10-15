@@ -1,1 +1,40 @@
-<p>alterar-produto works!</p>
+<section class="content-modal">
+
+  <h1>TESTE</h1>
+
+  <form [formGroup]="formModal" (ngSubmit)="alterarProduto(formModal)">
+    <mat-form-field>
+      <mat-label>Descrição</mat-label>
+      <input
+        matInput
+        class="input"
+        type="text"
+        formControlName="description"
+        autocomplete="off"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label> Quantidade </mat-label>
+
+      <input matInput class="input" type="number" formControlName="quantity" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label> Preço </mat-label>
+
+      <input matInput class="input" type="text" formControlName="price" prefix="R$ " mask="separator.2" thousandSeparator="."/>
+    </mat-form-field>
+
+    <section class="actions">
+      <button mat-raised-button color="warn" (click)="closeModal()">
+        Cancelar
+      </button>
+
+      <button mat-raised-button color="primary" type="submit">
+        Gravar
+      </button>
+    </section>
+  </form>
+
+</section>

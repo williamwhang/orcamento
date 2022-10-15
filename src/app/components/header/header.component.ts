@@ -1,5 +1,6 @@
 import { OrcamentoService } from './../../services/orcamento/orcamento.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,12 +10,17 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   orcamento!: number; //exclamação permite iniciar a variavel com NULL
 
-  constructor(private orcamentoService: OrcamentoService) {}
+  constructor(private orcamentoService: OrcamentoService,
+    private route: Router) {}
 
   ngOnInit(): void {
     this.orcamentoService.getValor().subscribe(valor => {
       this.orcamento = valor
     })
+  }
+
+  irParaOrcamento():void {
+    this.route.navigate(['/'])
   }
 
 }
